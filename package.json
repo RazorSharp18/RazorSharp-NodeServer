@@ -5,7 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "dev": "NODE_ENV=development nodemon dist/server.js",
+    "build:watch": "babel -w --out-dir=dist ./api",
+    "clean": "rimraf dist",
+    "lint": "eslint api",
+    "lint:fix": "eslint --fix api"
   },
   "repository": {
     "type": "git",
@@ -22,10 +27,24 @@
   },
   "homepage": "https://github.com/RadioActiveReaction/mock_api_data#readme",
   "devDependencies": {
-    "nodemon": "^1.14.12"
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.3.3",
+    "eslint": "^3.19.0",
+    "eslint-config-equimper": "^1.6.2",
+    "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "express": "^4.16.2",
-    "mongoose": "^5.0.3"
+    "axios": "^0.16.1",
+    "body-parser": "^1.16.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^5.0.16",
+    "morgan": "^1.7.0",
+    "n": "^2.1.8",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1"
   }
 }

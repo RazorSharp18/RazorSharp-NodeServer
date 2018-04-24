@@ -11,6 +11,15 @@ To view the data you can use robomongo (Optional).
 
 To set up the test data follow the Setting-Up-Test-Data guide.
 
+npm install( installs all the dependent node modules)
+npm run lint
+npm run lint:fix
+
+You need three terminals running. 
+1) mongod
+2) npm run build:watch - Used by babel to transpile the code
+3) npm run dev
+
 # Methods
 
 Razor Live comes with the following API methods which can be used to interact with the Razor Live database.

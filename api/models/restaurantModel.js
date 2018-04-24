@@ -1,6 +1,5 @@
-'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose, {Schema} from 'mongoose';
+// import Schema from 'mongoose.Schema';
 
 
 var RestaurantSchema = new Schema({
@@ -24,4 +23,9 @@ var RestaurantSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Restaurants', RestaurantSchema);
+//Exporting the model with mongoose schema. So that this can be used in controllers to fetch from the db.
+var Restaurants = mongoose.model('Restaurants', RestaurantSchema);
+
+module.exports = {
+  Restaurants: Restaurants
+}
