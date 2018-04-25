@@ -1,14 +1,15 @@
-/* eslint-disable no-console */
+// import mongoose from 'mongoose';
+var mongoose = require('mongoose');
 
-import mongoose  from 'mongoose';
-
-import config from './config';
-
-export default () => {
+// import devConfig from './config';
+var devConfig = require('./confg');
+const dbConfig = () => {
     mongoose.Promise = global.Promise;
-    mongoose.connect(config.DB_URL);
+    mongoose.connect(devConfig.DB_URL);
     mongoose.set('debug', true);
     mongoose.connection
     .once('open', () => console.log('Mongodb running'))
     .on('error', err => console.error(err));
 };
+
+module.exports = dbConfig;

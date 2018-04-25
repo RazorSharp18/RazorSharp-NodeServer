@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
-
 import bodyParser from 'body-parser';
+import dbConfig from '../api/config/db';
+import middlewaresConfig from './config/middlewares';
 
 const  app = express();
 const  port = process.env.PORT || 3001;
@@ -14,12 +15,23 @@ mongoose.connect('mongodb://localhost/RazorLive');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// import Restaurant from './models/restaurantModel'; //created model loading here
-
+//figure out a way to initialize all the routes easily.
 import routes from './routes/restaurantRoutes'; //importing route
-routes(app); //register the route
-// import routes2 from './routes/userRoutes';
-// routes2(app);
+routes(app); //register the restaurant routes
+
+import routes2 from './routes/userRoutes';
+routes2(app);
+
+/**
+* Database
+*/
+dbConfig();
+/**
+* Middlewares
+*/
+middlewaresConfig(app);
+
+
 
 
 app.listen(port);

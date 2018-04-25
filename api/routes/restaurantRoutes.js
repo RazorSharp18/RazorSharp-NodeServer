@@ -4,7 +4,6 @@ import { list_all_restaurants,
   list_all_restaurant_names, 
   remove_restaurant } from '../controllers/restaurantController';
 //Find the right way to import the whole package and reuse it to call all the methods.
-// import RestaurantController from '../controllers/restaurantController';
 
 export default function (app) {
   // get Routes for Restaurants

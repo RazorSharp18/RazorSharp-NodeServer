@@ -3,6 +3,4 @@ const devConfig = {
     JWT_SECRET: 'iuwbgu9bg98whwiv9wg98wghne908hgoin',
 };
   
-export default devConfig;
-
-  
+module.exports = devConfig;
